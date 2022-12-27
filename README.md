@@ -2,8 +2,8 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Installation</h1>
-This tutorial outlines the installation of the open-source help desk ticketing system osTicket.<br />
+<h1><b>osTicket - Post-install-config<b/> </h1>
+This tutorial outlines the configuration of the open-source help desk ticketing system osTicket.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -15,155 +15,87 @@ This tutorial outlines the installation of the open-source help desk ticketing s
 
 - Windows 10</b> (21H2)
 
-<h2>Installation requirements</h2>
+<h2>List of Configuration requirements</h2>
 
-- VM (Virtual Machine)
-- RDP (Remote Desktop Connection)
-- Google Drive file (<a href='https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6'>Link</a>)
-- Internet Information Service (IIS) set up
-- Most importantly a Wifi connection
+- Internet Connection
+- RDP(Remote Desktop Connection)
+- VM (Vitual Machine)
+- osTicket Installed
 
-<h2>Installation Steps</h2>
+<h2>Configuration Steps</h2>
 
+<p>This is the installation portion of the osTicket Lab. If you missed the previous steps here is the <a href="https://github.com/DevilDog2001/post-install-config/blob/main/README.md">Link.</a></p>
 <p>
-This is the installation portion of the osTicket Lab. If you missed the previous steps here is the <a href="https://github.com/DevilDog2001/osticket-prereqs">Link.</a>
+<img src="https://i.imgur.com/xc4u9sF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://i.imgur.com/rdVp6Sn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Continuing from where we left off within the VM. We want to now open a windows control panel and head to programs, form programs select program and feature. Now within the program and features there will be a selection called Turn windows features on or off on the left hand side, select that button. And the following will be prompted on your screen, from there we will select the IIS(Information Internet Services) and let the IIS install.
+Welcome to the configuration portion of the osTicket Lab. To start off this portion we will click on staff link on the right hand side and see this page appear. Login to the credentials created for the user_admin.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/xyCY5M7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/3RdJRJl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now after we have the IIS finish, we will go to the google doc and download the WebPlatformInstaller file. The file will download this launcher as shown above, go through the installation when complete the following will appear.
+Now that we are logged into the account make sure that we are in the admin panel. From the admin panel we will head to the <strong>Agents tab --> then select Roles --> and add a new role.</strong> Next name the role whatever you like for the Lab, after head over to the permissions and give that role all the permissions from Ticket Tasks and Knowledgebase. After that save changes and see the role appear within the roles.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/93ejQfx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/H6r3Jz1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Once we select finish we will then head over to the windows search and type in platform. The Web Platform Installer 5.1 should appear. moving to the search bar at the top right we will type in MySQL and select the MySQL Windows 5.5 released 9/9/2015.
+Once we finish creating are new role we will head over to create a new department. From the same agents tab select <strong>Departments --> then add Department</strong>, from there name the department whatever you would like for the lab. After creating a name select create Dept and leave everything defualt. You should see the new Department within the Department list
+</p>
+<br />
+<img src="https://i.imgur.com/JWnS4pc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Once we finish creating are new Department we will head over to create a new Team. From the same agents tab select <strong>Teams --> then add Team</strong>, from there name the Team whatever you may like for the Lab. After go over to Members and add your created user to the team, once added create the team.
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/j7Q72F4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/m4ufuUM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next we want to head over to settings Tab to allow any user to create tickets. Having the setting like so will allow users to create tickets without logging on.
 </p>
 <br />
 <p>
-Next after adding MySQL go back to the search bar and type PHP. From there filter the names by pressing name and locate the PHP ....(x86) files you want to add them up until you reach PHP 7.4.13 (x86). The image above from the lab shows the exact files, there should be exactly 12 items to be installed after selecting the files.
+<img src="https://i.imgur.com/l6gf9jk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+After setting the user's, move on over to the Agents Tab and select to add a new agent. Create 2 agents as shown above. repeat that same step for the second agent and then move on to giving the agent a Primary Department, permissions, and a team.
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/g209LMw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Md4ZLyA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Next press the install button and you should recieve a prompt on a new username for MySQL as root and to create the password(Document these 2 pieces of information they will be used later in the lab). Once you do press next and go through the installation, the installation should fail and prompt the page above.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/j1MGLmo.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Now we are going to install the PHP Manger and vcredist located within the <a href='https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6'>Link</a> to are google Drive for the lab. These 2 files can be found in your file explorer within the downloads as shown above.
+Once we have created are agents, we will switch over to the agents panel. From the agents panel we will create 2 new users as shown above. To get over we will select <strong>Agent panel on the top right --> Then select Users --> and once we are inside we select create user.</strong>
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/4ViV05z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/MJg4MRI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-After that we head back into are <a href='https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6'>Link</a> to are google Drive for the lab and download the osTicket file. Once downloaded extract the zipped folder from the downloads into the downloads, doing this makes the zip folder create a regular folder with the same contents.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/Q3LUJgA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Next head into the new and unzip folder from the osTicket download and copy the upload folder. Go to <strong>This PC--> then windows(C:)--> then inetpub--> and finally open wwwroot</strong> and paste the upload folder within. Rename that folder to osTicket.
+Now after creating are users we can head over back to the admin panel to create are SLA's. Once we are in the admin panel and have selected SLA, select create SLA. From there we will create the 3 following SLA'S <strong>SEV-A(1 hour.24/7),SEV-B(8 hour.24/7),SEV-C(8 hour,Business hours)</strong> 
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/PlitxOI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/K7weuRP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Once we are done with the last step we want to head to are windows search bar and type in IIS. Select IIS and restart IIS with the panel on the right side, after that select the drop down arrow key for VM-osTicket or whatever name you selected earlier in the lab on the <strong>left hand panel--> then select sites--> Defualt Website--> and are osTicket folder</strong> should be there.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/KIGAyir.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-After we are going to select the PHP Manager within the osTicket Home located in the center. From there <strong>select Enable or disable an extension, look for php_imap.dll is enable along with php_intl.dll and php_opcache.dll.</strong>
+After creating the 3 SLA's we will now navigate over to the Help Topics. There we will add 4 new Help Topics. Those 4 new Help Topics are <strong>Business Critical Outage, Personal Computer Issues, Equipment Request and Password Reset.</strong> Above shows the page in where we will enter the information.
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/dRGPdWI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/emfAIp4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now we head back to are wwwroot folder within file explorer, from there we select <strong>osTicket--> Then include</strong>. When inside the include folder scroll down to the ost-sampleconfig.php to ost-config.php as shown above.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/cHBdPn3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-After we changed the ost-sampleconfig.php to ost-config.php we will <strong>open its properties then --> open security --> click on advance --> then disable inheritance --> add permission --> select principle at the top left --> from there within the open box below for objects type everyone --> select Check Names --> and select ok --> on the following page select full control to give all basic permissions besides Special permissions for everyone</strong>. Your security panel should display whats above with everyone and full control under access.
+Now after adding those new Help Topics, lets logout of the Staff osTicket and log into the user page. The user page will allow us to create Tickets to send over to are Staff, here's the link to copy down and paste on your browser to enter the user page shown above. <strong>(http://localhost/osTicket/index.php)</strong>
 </p>
 <br />
 <p>
-<img src="https://i.imgur.com/vCXWto2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-If you've reached this page all the following steps have been completed successfully. Now simple fill out all the information as shown<strong>(Document The Admin User portion as well as the Database setting username and password will be needed for the lab).</strong>
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/mQPzPDm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Next we head back into are <a href='https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6'>Link</a> to are google Drive for the lab and download the HeidiSQL. Go through the complete download until the finish button is prompt, after you select finish the application will open as shown above.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/GhJrKSP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Select the add button on the button left, Heidi will prompt you to put in the password you create earlier when downloading the php files within WebPlatformInstaller 5.1. Enter the password and you will be sent to the page shown.Next <strong>rightclick unnamed --> then hover over create new --> and select Database</strong>. Name that dataase osTicket<strong>(it is important the spelling is correct)</strong>.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/wvurZnY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Now go back to the osTicket web browser as shown above and enter the new database name along with the respected credentials. Press install and wait for the page to load.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/aCKlFCn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Once complete you will have this page appear letting you know that you've successfully created the osTicket system. The links below are for the user end and the staff as well.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/cWrNy3w.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Final step, head back to the folder where we were in the include folder. From there <strong>Rightclick properties--> head to security tab --> then advance --> and double click on everyone --> once you are back in permissions change every user to read and execute</strong> press ok and close out the tabs for the properties.
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/2kYWhCm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-To end off the installation for osTicket. Head into the osTicket folder by <strong>clicking on This PC --> then windows (C:) --> select inetpub --> wwwroot --> and finally select osTicket.</strong> There we must delete the setup folder, in order to do so we must delete the contents with the folder. After deleting the contents within the setup folder we can move onto deleting the setup folder from osTicket. And congradulations you have completed the osTicket Installation.
-</p>
-<br />
-<p>
-This will conclude the Installation for the osTicket Lab. The next section we will begin to use osTicket and begin with the configurations. Next section <a href='https://github.com/DevilDog2001/osTicket-configurations'>Configurations</a> .
+This will conclude the Configurations for the osTicket Lab. The next section we will begin to use osTicket and begin with Ticket Lifecycle. Next section <a href='https://github.com/DevilDog2001/ticket-lifecycle'>Ticket Lifecycle</a> .
 </p>
